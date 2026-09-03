@@ -1,0 +1,17 @@
+import { createBrowserRouter } from "react-router";
+import { Root } from "./components/Root";
+import { HomePage } from "./pages/HomePage";
+import { SignUpPage } from "./pages/SignUpPage";
+import { NewProjectPage } from "./pages/NewProjectPage";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      { index: true, Component: HomePage },
+      { path: "cadastro", Component: SignUpPage },
+      { path: "projeto/novo", Component: NewProjectPage },
+    ],
+  },
+]);

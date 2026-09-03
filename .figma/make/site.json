@@ -1,0 +1,10 @@
+{
+  "description": "Showcases TecHub's brand with a visually engaging homepage featuring logo, slogan, menus, buttons, and info cards for user-friendly site navigation.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -47,7 +47,7 @@ export function SignUpPage() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "52px 24px 80px",
+        padding: "25px 24px 80px",
       }}
     >
       {/* Title */}

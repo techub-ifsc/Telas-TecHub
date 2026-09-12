@@ -3,6 +3,7 @@ import { Root } from "./components/Root";
 import { HomePage } from "./pages/HomePage";
 import { SignUpPage } from "./pages/SignUpPage";
 import { NewProjectPage } from "./pages/NewProjectPage";
+import { ProjectsPage } from "./pages/ProjectsPage";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
       { index: true, Component: HomePage },
       { path: "cadastro", Component: SignUpPage },
       { path: "projeto/novo", Component: NewProjectPage },
+      { path: "projetos", Component: ProjectsPage },
     ],
   },
 ]);

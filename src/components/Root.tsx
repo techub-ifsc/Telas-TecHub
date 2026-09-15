@@ -108,6 +108,7 @@ export function Root() {
             className="hidden md:flex"
           >
             <button
+              onClick={() => navigate("/login")}
               style={{
                 background: "transparent",
                 color: "#FFFFFF",
@@ -214,6 +215,10 @@ export function Root() {
               }}
             >
               <button
+                onClick={() => {
+                  navigate("/cadastro")
+                  setMobileOpen(false)
+                }}
                 style={{
                   background: "transparent",
                   color: "#fff",
@@ -227,7 +232,7 @@ export function Root() {
               </button>
               <button
                 onClick={() => {
-                  navigate("/cadastro")
+                  navigate("/login")
                   setMobileOpen(false)
                 }}
                 style={{

@@ -79,7 +79,7 @@ export function Root() {
               {[
                 ["Início", "/"],
                 ["Projetos", "/projetos"],
-                ["Criadores", "#"],
+                ["Criadores", "/alunos"],
               ].map(([label, href]) => (
                 <Link
                   key={label}

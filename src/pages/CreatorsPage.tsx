@@ -146,33 +146,36 @@ function CoverBg({ bg, pattern }: { bg: string; pattern: boolean }) {
 }
 
 function StudentCard({ student }: { student: typeof STUDENTS[0] }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div
       style={{
         backgroundColor: C.card,
-        border: `1.5px solid ${C.green}`,
+        border: `2px solid ${hovered ? C.green : "#3f3f3f"}`,
         borderRadius: "14px",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         minWidth: 0,
-        transition: "transform 0.2s ease",
+        transition: "border-color 0.2s, transform 0.2s",
+        transform: hovered ? "scale(1.03)" : "scale(1)",
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div style={{ height: "130px", position: "relative", flexShrink: 0 }}>
+      <div style={{ height: "140px", position: "relative", flexShrink: 0 }}>
         <CoverBg bg={student.coverBg} pattern={student.coverPattern} />
-        <div style={{ position: "absolute", bottom: "-56px", left: "50%", transform: "translateX(-50%)" }}>
+        <div style={{ position: "absolute", bottom: "-64px", left: "50%", transform: "translateX(-50%)" }}>
           <img
             src={student.avatar}
             alt={student.name}
-            style={{ width: 150, height: 150, borderRadius: "50%", objectFit: "cover", border: `3px solid ${C.green}`, display: "block" }}
+            style={{ width: 128, height: 128, borderRadius: "50%", objectFit: "cover", border: `2px solid ${C.green}`, display: "block" }}
           />
         </div>
       </div>
 
-      <div style={{ paddingTop: "68px", padding: "68px 20px 20px", textAlign: "center", display: "flex", flexDirection: "column", gap: "4px", flex: 1 }}>
+      <div style={{ paddingTop: "76px", padding: "76px 20px 20px", textAlign: "center", display: "flex", flexDirection: "column", gap: "4px", flex: 1 }}>
         <p style={{ color: C.textPrimary, fontWeight: 700, fontSize: "17px", margin: 0 }}>{student.name}</p>
         <p style={{ color: C.textSecondary, fontSize: "13px", margin: 0 }}>{student.course}</p>
         <p style={{ color: C.textSecondary, fontSize: "13px", margin: "0 0 10px 0" }}>{student.phase}</p>

@@ -1,6 +1,7 @@
 import { useState, useRef, useLayoutEffect, useEffect } from "react"
 import React from "react"
 import botaoXSvg from "@/imports/BotaoX.svg"
+import { useNavigate } from "react-router"
 
 const C = {
   bg: "#2D2F31",
@@ -991,11 +992,13 @@ export function ProjectsPage() {
 
 function ProjectCard({ project }: { project: typeof MOCK_PROJECTS[0] }) {
   const [hovered, setHovered] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => navigate("/projeto")}
       style={{
         background: C.card,
         border: `2px solid ${hovered ? C.green : "#3f3f3f"}`,

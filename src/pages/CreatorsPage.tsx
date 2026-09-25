@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import botaoXSvg from "@/imports/BotaoX.svg";
+import { useNavigate } from "react-router"
 
 const C = {
   bg: "#2D2F31",
@@ -147,6 +148,7 @@ function CoverBg({ bg, pattern }: { bg: string; pattern: boolean }) {
 
 function StudentCard({ student }: { student: typeof STUDENTS[0] }) {
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate()
 
   return (
     <div
@@ -163,6 +165,7 @@ function StudentCard({ student }: { student: typeof STUDENTS[0] }) {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => navigate("/perfil")}
     >
       <div style={{ height: "140px", position: "relative", flexShrink: 0 }}>
         <CoverBg bg={student.coverBg} pattern={student.coverPattern} />

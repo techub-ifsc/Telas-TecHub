@@ -7,7 +7,8 @@ import { ProjectsPage } from "./pages/ProjectsPage";
 import { LoginPage } from "./pages/LoginPage";
 import { ProjectDetailsPage } from "./pages/ProjectDetailsPage";
 import { CreatorsPage } from "./pages/CreatorsPage";
-import { Perfil } from "./pages/ProfilePage";
+import { Profile } from "./pages/ProfilePage";
+import { ProfileEdit } from "./pages/ProfileEditPage";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ export const router = createBrowserRouter([
       { path: "login", Component: LoginPage },
       { path: "projeto", Component: ProjectDetailsPage },
       { path: "alunos", Component: CreatorsPage },
-      { path: "perfil", Component: Perfil },
+      { path: "perfil", Component: Profile },
+      { path: "perfil/editar", Component: ProfileEdit },
     ],
   },
 ]);

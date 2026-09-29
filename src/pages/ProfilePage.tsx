@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router";
 import { useState } from "react"
+
 
 const profilePhoto =
   "https://images.unsplash.com/photo-1565120130276-dfbd9a7a3ad7?crop=faces&fit=crop&fm=jpg&q=85&w=640&h=640"
@@ -93,9 +95,10 @@ const projects = [
   },
 ]
 
-export function Perfil() {
+export function Profile() {
   const [activeTab, setActiveTab] = useState<FilterTab>("autor")
   const [editHover, setEditHover] = useState(false)
+  const navigate = useNavigate();
 
   const filtered = projects.filter((p) => {
     if (activeTab === "todos") return true
@@ -105,53 +108,6 @@ export function Perfil() {
 
   return (
     <div className="bg-[#0f0f12] min-h-screen w-full flex flex-col">
-      <div
-        className="w-full sticky top-0 z-50 border-b border-[#1e1e26]"
-        style={{
-          backdropFilter: "blur(16px)",
-          background: "rgba(15,15,18,0.92)",
-        }}
-      >
-        <div className="flex items-center justify-between max-w-[1551px] mx-auto px-8 h-[75px]">
-          <div className="flex items-center gap-10">
-            <div className="flex items-center gap-[10px] cursor-pointer group">
-              <div className="bg-[#1e1e22] px-3 py-1 rounded-[5px] group-hover:bg-[#2a2a30] transition-colors duration-200">
-                <p className="font-['JetBrains_Mono:Medium'] font-medium text-[#a3e635] text-[16px] leading-[21px] whitespace-nowrap">{`</>`}</p>
-              </div>
-              <p className="font-['Inter:Bold'] font-bold text-white text-[21px] leading-[32px] tracking-[-0.5px] whitespace-nowrap group-hover:text-[#a1a1aa] transition-colors duration-200">
-                TechHub
-              </p>
-            </div>
-            <div className="flex items-center gap-8">
-              <p className="font-['Inter:Medium'] font-medium text-[#a1a1aa] text-[18px] leading-[27px] whitespace-nowrap cursor-pointer">
-                Home
-              </p>
-              <p className="font-['Inter:Medium'] font-medium text-[#a1a1aa] text-[18px] leading-[27px] whitespace-nowrap cursor-pointer">
-                Projetos
-              </p>
-              <p className="font-['Inter:Medium'] font-medium text-[#a1a1aa] text-[18px] leading-[27px] whitespace-nowrap cursor-pointer">
-                Criadores
-              </p>
-            </div>
-          </div>
-          <div
-            className="p-[3px] rounded-full cursor-pointer"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, rgb(163, 230, 53) 0%, rgb(56, 189, 248) 100%)",
-            }}
-          >
-            <div className="size-[43px] rounded-full overflow-hidden">
-              <img
-                alt="Antoni Ferraz"
-                className="size-full object-cover"
-                src={profilePhoto}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="flex-1 w-full max-w-[1551px] mx-auto px-8 py-10">
         <div className="flex gap-8 items-start">
@@ -177,7 +133,7 @@ export function Perfil() {
 
               {/* Edit button */}
               <div
-                onClick={() => alert("Editar perfil")}
+                onClick={() => /*navigate("/perfil/editar")*/ console.log("Edit profile clicked")}
                 onMouseEnter={() => setEditHover(true)}
                 onMouseLeave={() => setEditHover(false)}
                 style={{
@@ -291,16 +247,14 @@ export function Perfil() {
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-2 rounded-[10px] cursor-pointer transition-all duration-200 ${
-                      activeTab === tab
+                    className={`px-4 py-2 rounded-[10px] cursor-pointer transition-all duration-200 ${activeTab === tab
                         ? "bg-[#85ce5a]"
                         : "bg-[#242429] border border-[#2a2a30] hover:border-[#85ce5a]"
-                    }`}
+                      }`}
                   >
                     <p
-                      className={`font-['Inter:Medium'] font-medium text-[16px] leading-[21px] ${
-                        activeTab === tab ? "text-[#0f0f12]" : "text-[#a1a1aa]"
-                      }`}
+                      className={`font-['Inter:Medium'] font-medium text-[16px] leading-[21px] ${activeTab === tab ? "text-[#0f0f12]" : "text-[#a1a1aa]"
+                        }`}
                     >
                       {label}
                     </p>

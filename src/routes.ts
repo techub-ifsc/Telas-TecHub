@@ -9,6 +9,7 @@ import { ProjectDetailsPage } from "./pages/ProjectDetailsPage";
 import { CreatorsPage } from "./pages/CreatorsPage";
 import { Profile } from "./pages/ProfilePage";
 import { ProfileEdit } from "./pages/ProfileEditPage";
+import { ProjectsModerationPage } from "./pages/ProjectsModerationPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
       { path: "alunos", Component: CreatorsPage },
       { path: "perfil", Component: Profile },
       { path: "perfil/editar", Component: ProfileEdit },
+      { path: "moderacao/projetos", Component: ProjectsModerationPage },
     ],
   },
 ]);

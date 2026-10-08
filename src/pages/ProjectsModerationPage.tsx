@@ -699,7 +699,12 @@ export function ProjectsModerationPage() {
             Fila de projetos aguardando avaliação institucional. Prazo de
             referência: 7 dias.
           </p>
-          <strong>12 projetos aguardando análise</strong>
+          <strong>
+            {visibleProjects.length}{" "}
+            {visibleProjects.length === 1
+              ? "projeto aguardando análise"
+              : "projetos aguardando análise"}
+          </strong>
         </header>
 
         <div className="moderation-controls">
